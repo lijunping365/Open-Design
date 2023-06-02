@@ -1,0 +1,4 @@
+echo=com.openbytecode.chain.dubbo.test.provider.filter.EchoFilter
+token=com.openbytecode.chain.dubbo.test.provider.filter.TokenFilter
+trace=com.openbytecode.chain.dubbo.test.provider.filter.TraceFilter
+timeout=com.openbytecode.chain.dubbo.test.provider.filter.TimeoutFilter
