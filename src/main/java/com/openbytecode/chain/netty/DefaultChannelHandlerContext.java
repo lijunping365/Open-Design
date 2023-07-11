@@ -21,6 +21,11 @@ public class DefaultChannelHandlerContext implements ChannelHandlerContext{
     }
 
     @Override
+    public String name() {
+        return this.name;
+    }
+
+    @Override
     public ChannelHandler handler() {
         return this.handler;
     }

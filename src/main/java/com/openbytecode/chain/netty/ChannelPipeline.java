@@ -1,5 +1,7 @@
 package com.openbytecode.chain.netty;
 
+import java.util.NoSuchElementException;
+
 /**
  * @author lijunping
  */
@@ -30,6 +32,40 @@ public interface ChannelPipeline {
      *         if the specified handler is {@code null}
      */
     ChannelPipeline addLast(String name, ChannelHandler handler);
+
+    /**
+     * Inserts a {@link ChannelHandler} before an existing handler of this
+     * pipeline.
+     *
+     * @param baseName  the name of the existing handler
+     * @param name      the name of the handler to insert before
+     * @param handler   the handler to insert before
+     *
+     * @throws NoSuchElementException
+     *         if there's no such entry with the specified {@code baseName}
+     * @throws IllegalArgumentException
+     *         if there's an entry with the same name already in the pipeline
+     * @throws NullPointerException
+     *         if the specified baseName or handler is {@code null}
+     */
+    ChannelPipeline addBefore(String baseName, String name, ChannelHandler handler);
+
+    /**
+     * Inserts a {@link ChannelHandler} after an existing handler of this
+     * pipeline.
+     *
+     * @param baseName  the name of the existing handler
+     * @param name      the name of the handler to insert after
+     * @param handler   the handler to insert after
+     *
+     * @throws NoSuchElementException
+     *         if there's no such entry with the specified {@code baseName}
+     * @throws IllegalArgumentException
+     *         if there's an entry with the same name already in the pipeline
+     * @throws NullPointerException
+     *         if the specified baseName or handler is {@code null}
+     */
+    ChannelPipeline addAfter(String baseName, String name, ChannelHandler handler);
 
     /**
      * A {@link io.netty.channel.Channel} received a message.

@@ -15,6 +15,8 @@ public class PipelineTest {
         pipeline.addLast("handlerTwo", new HandlerTwo());
         pipeline.addLast("handlerThree", new HandlerThree());
 
+        pipeline.addBefore("handlerTwo", "handlerOne11", new HandlerOne11());
+
         DefaultDispatcher dispatcher = new DefaultDispatcher(pipeline);
 
         dispatcher.doDispatcher("aaaaaaaaaaaaaaaaaa");
